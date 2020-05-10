@@ -7,9 +7,7 @@ trigger:
     include:
       - '*'
     exclude:
-      - solutionItems/*
       - 'README.md'
-
 
 variables:
   buildConfiguration: 'Release'
@@ -31,21 +29,23 @@ stages:
           displayName: 'Build Projects'
           inputs:
             command: build
-            projects: '**/*.csproj'
+            projects: '**/*.sln'
             arguments: '--configuration $(buildConfiguration)'
         - task: DotNetCoreCLI@2
           displayName: 'Run Tests'
           inputs:
             command: test
-            projects: '**/*Test*.csproj'
+            projects: '**/*.sln'
             arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
             nobuild: true
         - script: |
             dotnet tool install -g dotnet-reportgenerator-globaltool
             reportgenerator -reports:$(Build.SourcesDirectory)/**/*Test.Unit*/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:Cobertura
           displayName: 'Create Code Coverage Report'
+          enabled: false
         - task: PublishCodeCoverageResults@1
           displayName: 'Publish Code Coverage Report'
+          enabled: false
           inputs:
             codeCoverageTool: Cobertura
             summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'

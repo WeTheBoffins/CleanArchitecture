@@ -13,4 +13,10 @@
       <ProjectReference Include="..\..\src\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj" />
       <ProjectReference Include="..\CleanArchitecture.Test.Common\CleanArchitecture.Test.Common.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Api" />
+      <Folder Include="Domain" />
+      <Folder Include="Infrastructure" />
+    </ItemGroup>
 </Project>
