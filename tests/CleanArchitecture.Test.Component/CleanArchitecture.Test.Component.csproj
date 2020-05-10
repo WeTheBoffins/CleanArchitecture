@@ -14,8 +14,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CleanArchitecture.Api\CleanArchitecture.Api.csproj" />
+      <ProjectReference Include="..\..\src\CleanArchitecture.Api\CleanArchitecture.Api.csproj" />
       <ProjectReference Include="..\CleanArchitecture.Test.Common\CleanArchitecture.Test.Common.csproj" />
     </ItemGroup>
+
 
 </Project>

@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace CleanArchitecture.Test.Component
+namespace CleanArchitecture.Test.Common
 {
     public class UnitTest1
     {
